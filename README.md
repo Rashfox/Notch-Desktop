@@ -35,3 +35,4 @@ git clone [https://github.com/Rashfox/Notch-Desktop.git](https://github.com/Rash
 cd Notch-Desktop
 
 # Jalankan aplikasi (sesuaikan dengan perintah build/run proyekmu)
+npm start

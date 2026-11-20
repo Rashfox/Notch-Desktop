@@ -3,7 +3,7 @@
 Hadirkan pengalaman interaktif ala **Dynamic Island / Notch** langsung ke layar desktop kamu! **Notch-Desktop** adalah aplikasi utilitas ringan yang mengubah bagian atas layar menjadi pusat kontrol cepat yang elegan dan fungsional.
 
 ![Release](https://img.shields.io/badge/version-v1.1.0-blue)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 
 ## ✨ Fitur Utama
 

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notch-Desktop ~ Smart Interactive Notch untuk Windows</title>
+  <meta name="description" content="Hadirkan pengalaman interaktif di tepi atas layar Windows dengan kontrol musik, live lirik tersinkronisasi, dan quick system actions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/113658888?v=4" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Background -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>Notch-Desktop</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#demo">Live Demo</a>
+        <a href="#features">Fitur</a>
+        <a href="#install">Instalasi</a>
+        <a href="https://github.com/Rashfox/Notch-Desktop" target="_blank" rel="noopener noreferrer" class="nav-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero & Interactive Simulator Section -->
+    <section id="demo" class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Open Source Windows Desktop Utility</span>
+        </div>
+
+        <h1 class="hero-title">
+          Ubah Tepi Atas Layar Jadi <span class="gradient-text">Pusat Kontrol Interaktif</span>
+        </h1>
+        <p class="hero-subtitle">
+          Pantau lirik lagu secara real-time, atur pemutaran media, dan akses pengaturan cepat sistem langsung dari notch elegan tanpa mengganggu jendela kerjamu.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-group">
+          <a href="https://github.com/Rashfox/Notch-Desktop/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Latest Release</span>
+          </a>
+          <a href="https://github.com/Rashfox/Notch-Desktop" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span>Lihat Repository</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Interactive Desktop Mockup Stage -->
+        <div class="desktop-stage-wrapper">
+          <div class="stage-label">
+            <span>Interactive Live Preview — Klik Notch di bawah untuk mencoba mode Compact &amp; Expanded</span>
+          </div>
+
+          <div class="desktop-mockup" id="desktopMockup">
+            <!-- Top Bezel Line -->
+            <div class="screen-top-edge"></div>
+
+            <!-- THE NOTCH WIDGET -->
+            <div class="notch-container">
+              <div class="notch-widget is-compact" id="notchWidget" role="region" aria-label="Notch Desktop Interactive Demo">
+                <!-- Top cyan edge glow -->
+                <div class="notch-top-glow"></div>
+
+                <!-- COMPACT VIEW -->
+                <div class="notch-compact" id="notchCompact" title="Klik untuk memperluas Notch">
+                  <div class="compact-lyric-wrap">
+                    <span class="compact-lyric-text" id="compactLyric">Wis saben dinane mung mikirke kowe</span>
+                  </div>
+                  <div class="clock-pill" id="compactClock">13.41</div>
+                </div>
+
+                <!-- EXPANDED VIEW -->
+                <div class="notch-expanded" id="notchExpanded">
+                  <!-- Top Header Bar -->
+                  <div class="expanded-header">
+                    <div class="clock-pill" id="expandedClock">13.41</div>
+
+                    <div class="quick-actions">
+                      <span class="actions-label">ACTIONS</span>
+
+                      <button type="button" class="action-btn" id="btnVolume" title="Ubah Volume">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        </svg>
+                        <span id="volumeLabel">10%</span>
+                      </button>
+
+                      <button type="button" class="action-btn is-active" id="btnWifi" data-toggle="true" data-name="Wi-Fi">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                          <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                          <line x1="12" y1="20" x2="12.01" y2="20"/>
+                        </svg>
+                        <span class="toggle-state">ON</span>
+                      </button>
+
+                      <button type="button" class="action-btn" id="btnBluetooth" data-toggle="true" data-name="Bluetooth">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/>
+                        </svg>
+                        <span class="toggle-state">OFF</span>
+                      </button>
+
+                      <button type="button" class="action-btn" id="btnMic" data-toggle="true" data-name="Mikrofon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                          <line x1="12" y1="19" x2="12" y2="23"/>
+                        </svg>
+                        <span class="toggle-state">ON</span>
+                      </button>
+
+                      <button type="button" class="action-btn" id="btnAirplane" data-toggle="true" data-name="Mode Pesawat">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                        </svg>
+                        <span class="toggle-state">OFF</span>
+                      </button>
+
+                      <button type="button" class="icon-only-btn" id="btnSettings" title="Pengaturan Notch">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <line x1="4" y1="21" x2="4" y2="14"/>
+                          <line x1="4" y1="10" x2="4" y2="3"/>
+                          <line x1="12" y1="21" x2="12" y2="12"/>
+                          <line x1="12" y1="8" x2="12" y2="3"/>
+                          <line x1="20" y1="21" x2="20" y2="16"/>
+                          <line x1="20" y1="12" x2="20" y2="3"/>
+                          <line x1="1" y1="14" x2="7" y2="14"/>
+                          <line x1="9" y1="8" x2="15" y2="8"/>
+                          <line x1="17" y1="16" x2="23" y2="16"/>
+                        </svg>
+                      </button>
+
+                      <button type="button" class="icon-only-btn" id="btnCollapse" title="Tutup / Perkecil Notch">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                          <line x1="18" y1="6" x2="6" y2="18"/>
+                          <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Main Split Grid -->
+                  <div class="expanded-body">
+                    <!-- Left Column: Media Player -->
+                    <div class="media-panel">
+                      <div class="panel-tag">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                          <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        <span id="playStatusLabel">PLAYING</span>
+                      </div>
+
+                      <div class="track-info-row">
+                        <div class="album-art" id="albumArt">
+                          <span class="art-title">Rasah<br/>Bali</span>
+                        </div>
+                        <div class="track-meta">
+                          <h3 class="track-title" id="trackTitle">Rasah Bali</h3>
+                          <p class="track-artist" id="trackArtist">Lavora</p>
+                        </div>
+                      </div>
+
+                      <!-- Progress Bar -->
+                      <div class="progress-row">
+                        <span class="time-text" id="currentTimeEl">1:11</span>
+                        <div class="progress-track" id="progressTrack" role="slider" aria-label="Seek audio">
+                          <div class="progress-fill" id="progressFill" style="width: 26.8%;">
+                            <span class="progress-thumb"></span>
+                          </div>
+                        </div>
+                        <span class="time-text" id="remainingTimeEl">-3:13</span>
+                      </div>
+
+                      <!-- Playback Controls -->
+                      <div class="playback-controls">
+                        <button type="button" class="ctrl-btn" id="btnPrev" title="Lagu Sebelumnya">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="4" y="5" width="2.5" height="14" rx="1"/>
+                            <polygon points="19 5 9 12 19 19 19 5"/>
+                          </svg>
+                        </button>
+
+                        <button type="button" class="ctrl-btn seek-step" id="btnRewind" title="Mundur 10 detik">-10</button>
+
+                        <button type="button" class="play-pause-btn" id="btnPlayPause" title="Play / Pause">
+                          <!-- Pause Icon (default playing) -->
+                          <svg id="iconPause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="5" width="4" height="14" rx="1.2"/>
+                            <rect x="14" y="5" width="4" height="14" rx="1.2"/>
+                          </svg>
+                          <!-- Play Icon (hidden when playing) -->
+                          <svg id="iconPlay" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="6 4 20 12 6 20 6 4"/>
+                          </svg>
+                        </button>
+
+                        <button type="button" class="ctrl-btn seek-step" id="btnForward" title="Maju 10 detik">+10</button>
+
+                        <button type="button" class="ctrl-btn" id="btnNext" title="Lagu Berikutnya">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 5 15 12 5 19 5 5"/>
+                            <rect x="17.5" y="5" width="2.5" height="14" rx="1"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="panel-divider"></div>
+
+                    <!-- Right Column: Synced Lyrics -->
+                    <div class="lyrics-panel">
+                      <div class="panel-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="2" y="4" width="20" height="16" rx="3"/>
+                          <line x1="6" y1="10" x2="10" y2="10"/>
+                          <line x1="14" y1="10" x2="18" y2="10"/>
+                          <line x1="6" y1="15" x2="18" y2="15"/>
+                        </svg>
+                        <span>LIRIK</span>
+                      </div>
+
+                      <div class="lyrics-lines">
+                        <p class="lyric-line is-prev" id="lyricPrev">Tatu uwis mari, ora arep baleni</p>
+                        <p class="lyric-line is-current" id="lyricCurrent">Nimas, aku uwis ora sudi</p>
+                        <p class="lyric-line is-next" id="lyricNext">Wis saben dinane mung mikirke kowe</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Toast notification inside desktop mockup -->
+            <div class="mockup-toast" id="mockupToast">Wi-Fi: ON</div>
+
+            <!-- Mockup Hint Bar -->
+            <div class="mockup-footer-controls">
+              <button type="button" class="demo-chip" id="toggleModeChip">
+                Switch ke Mode Expanded
+              </button>
+              <span class="demo-tip">Tip: Lirik berjalan otomatis saat status <strong>PLAYING</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Dirancang Ringan, Fungsional, dan Estetik</h2>
+          <p>Semua informasi penting yang kamu butuhkan saat bekerja atau bersantai, menyatu rapi di bagian atas layar.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+            <h3>Live Synced Lyrics</h3>
+            <p>Menampilkan lirik lagu secara real-time baik dalam mode ringkas maupun tampilan penuh agar kamu tetap bisa bernyanyi tanpa membuka jendela pemutar musik.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <h3>Kontrol Media Instan</h3>
+            <p>Play, pause, lompat ±10 detik, pindah lagu, dan geser durasi langsung dari notch tanpa menginterupsi aktivitas coding atau gaming kamu.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <h3>Quick System Actions</h3>
+            <p>Cek persentase volume, nyalakan atau matikan Wi-Fi, Bluetooth, Mikrofon, hingga Airplane Mode dengan satu klik.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3>Compact &amp; Adaptive</h3>
+            <p>Otomatis menyusut menjadi bilah ramping dengan indikator jam digital saat tidak diperluas sehingga ruang layar tetap lega.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="install">
+      <div class="container">
+        <div class="install-box">
+          <div class="install-info">
+            <h2>Mulai Gunakan dalam Hitungan Detik</h2>
+            <p>Unduh rilis terbaru langsung dari GitHub Releases dan jalankan di PC Windows kamu.</p>
+            <ol class="steps-list">
+              <li>
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Download Rilis Terbaru</strong>
+                  <p>Klik tombol download untuk mengambil file installer atau arsip rilis terbaru dari GitHub.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Ekstrak &amp; Jalankan Aplikasi</strong>
+                  <p>Buka executable <code>Notch-Desktop</code> dan notch akan langsung muncul di tepi atas layar.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div>
+                  <strong>Interaksi Kapan Saja</strong>
+                  <p>Klik notch untuk membuka panel penuh media, lirik, dan quick actions sistem.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="install-cta-card">
+            <span class="release-tag">GitHub Releases • Latest</span>
+            <h3>Siap Mencoba Notch-Desktop?</h3>
+            <p>Gratis, ringan, dan terus dikembangkan secara terbuka di GitHub.</p>
+            <a href="https://github.com/Rashfox/Notch-Desktop/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
+              Download Sekarang
+            </a>
+            <a href="https://github.com/Rashfox/Notch-Desktop" target="_blank" rel="noopener noreferrer" class="repo-link">
+              github.com/Rashfox/Notch-Desktop
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>Dibuat oleh <a href="https://github.com/Rashfox" target="_blank" rel="noopener noreferrer">Rashfox</a></p>
+      <div class="footer-links">
+        <a href="https://github.com/Rashfox/Notch-Desktop" target="_blank" rel="noopener noreferrer" title="Coming Soon">Source Code</a>
+        <a href="https://github.com/Rashfox/Notch-Desktop/releases/latest" target="_blank" rel="noopener noreferrer">Releases</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
